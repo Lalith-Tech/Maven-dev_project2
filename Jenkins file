@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clean') {
+            steps {
+                echo 'Cleaning...'
+                bat 'mvn clean'
+            }
+        }
+        stage('Package') {
+            steps {
+                echo 'Packaging...'
+                bat 'mvn package'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                bat 'mvn install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                bat 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Replace with actual deploy command, e.g. using Tomcat plugin or scp
+                bat 'mvn tomcat7:deploy'
+            }
+        }
+    }
+}
