@@ -25,12 +25,5 @@ pipeline {
                 bat 'mvn test'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Replace with actual deploy command, e.g. using Tomcat plugin or scp
-                bat 'mvn tomcat7:deploy'
-            }
-        }
     }
 }
